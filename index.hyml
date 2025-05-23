@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Funny Tools</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com "></script>
+
+  <!-- Custom Theme -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ff69b4',
+            secondary: '#ffd700',
+            modalBg: 'rgba(0, 0, 0, 0.7)',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="text-center py-10 bg-gradient-to-r from-pink-300 to-yellow-200">
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">😂 Funny Tools</h1>
+    <p class="text-lg text-gray-600">मस्ती, मज़ाक और थोड़ा परेशान करने वाले टूल्स!</p>
+  </header>
+
+  <!-- Tools Grid -->
+  <main class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-12">
+
+    <!-- Tool 1: Fake Call Generator -->
+    <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 text-center">
+      <div class="text-4xl mb-4">📱</div>
+      <h2 class="text-xl font-semibold mb-2">Fake Call Generator</h2>
+      <p class="text-gray-600 mb-4">अचानक आता हुआ Fake Call – दोस्तों को घबराओ!</p>
+      <button onclick="showModal('call')" title="Try this prank!" class="inline-block px-5 py-2 bg-primary text-white rounded-full hover:bg-pink-500 transition duration-300">Try Now</button>
+    </div>
+
+    <!-- Tool 2: Auto Screaming Page -->
+    <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 text-center">
+      <div class="text-4xl mb-4">🔊</div>
+      <h2 class="text-xl font-semibold mb-2">Auto Screaming Page</h2>
+      <p class="text-gray-600 mb-4">एक बटन दबाते ही SCREAM!</p>
+      <button onclick="showModal('scream')" title="Loud alert prank!" class="inline-block px-5 py-2 bg-primary text-white rounded-full hover:bg-pink-500 transition duration-300">Try Now</button>
+    </div>
+
+    <!-- Tool 3: Can't Touch This -->
+    <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 text-center">
+      <div class="text-4xl mb-4">👻</div>
+      <h2 class="text-xl font-semibold mb-2">Can't Touch This</h2>
+      <p class="text-gray-600 mb-4">बटन आपसे भागता रहेगा 😤</p>
+      <button onclick="showModal('cantouch')" title="Button runs away!" class="inline-block px-5 py-2 bg-primary text-white rounded-full hover:bg-pink-500 transition duration-300">Try Now</button>
+    </div>
+
+    <!-- Tool 4: Who's the Real Villain? -->
+    <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 text-center">
+      <div class="text-4xl mb-4">🎭</div>
+      <h2 class="text-xl font-semibold mb-2">Who's the Real Villain?</h2>
+      <p class="text-gray-600 mb-4">आपके दोस्तों में से कौन है विलेन? 😏</p>
+      <button onclick="showModal('villain')" title="Find out who is villain!" class="inline-block px-5 py-2 bg-primary text-white rounded-full hover:bg-pink-500 transition duration-300">Try Now</button>
+    </div>
+
+    <!-- Tool 5: This Button Does Nothing -->
+    <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 text-center">
+      <div class="text-4xl mb-4">🚫</div>
+      <h2 class="text-xl font-semibold mb-2">This Button Does Nothing</h2>
+      <p class="text-gray-600 mb-4">बटन दबाओ… कुछ भी नहीं होगा! 😒</p>
+      <button onclick="doNothing()" title="Click me!" class="inline-block px-5 py-2 bg-primary text-white rounded-full hover:bg-pink-500 transition duration-300">Try Now</button>
+    </div>
+
+    <!-- Tool 6: Your Name in Bollywood Poster -->
+    <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 text-center">
+      <div class="text-4xl mb-4">🎬</div>
+      <h2 class="text-xl font-semibold mb-2">Your Name in Bollywood Poster</h2>
+      <p class="text-gray-600 mb-4">खुद को बॉलीवुड में देखो! 🎥</p>
+      <button onclick="showModal('poster')" title="Enter your name!" class="inline-block px-5 py-2 bg-primary text-white rounded-full hover:bg-pink-500 transition duration-300">Try Now</button>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm text-gray-500 border-t mt-12">
+    Made with ❤️ for fun | Host anywhere!
+  </footer>
+
+  <!-- Modals -->
+  <div id="modal-call" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-overlay absolute w-full h-full bg-black opacity-70" onclick="hideModal('call')"></div>
+    <div class="bg-white rounded-lg p-6 max-w-md w-full relative">
+      <button onclick="hideModal('call')" class="absolute top-2 right-2 text-gray-500 text-2xl">&times;</button>
+      <h2 class="text-xl font-bold mb-4">📞 Fake Call Generator</h2>
+      <p>दोस्तों को चौंकाने के लिए!</p>
+      <button onclick="alert('Ring Ring... Hello?')" class="mt-4 px-4 py-2 bg-primary text-white rounded">Call Me</button>
+    </div>
+  </div>
+
+  <div id="modal-scream" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-overlay absolute w-full h-full bg-black opacity-70" onclick="hideModal('scream')"></div>
+    <div class="bg-white rounded-lg p-6 max-w-md w-full relative">
+      <button onclick="hideModal('scream')" class="absolute top-2 right-2 text-gray-500 text-2xl">&times;</button>
+      <h2 class="text-xl font-bold mb-4">🔊 Auto Screaming Page</h2>
+      <p>SCREAM Sound Play करें!</p>
+      <button onclick="playScream()" class="mt-4 px-4 py-2 bg-red-500 text-white rounded">SCREAM!</button>
+      <audio id="screamSound" src="https://www.soundjay.com/human/sounds/scream-05.mp3 "></audio>
+    </div>
+  </div>
+
+  <div id="modal-cantouch" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-overlay absolute w-full h-full bg-black opacity-70" onclick="hideModal('cantouch')"></div>
+    <div class="bg-white rounded-lg p-6 max-w-md w-full relative">
+      <button onclick="hideModal('cantouch')" class="absolute top-2 right-2 text-gray-500 text-2xl">&times;</button>
+      <h2 class="text-xl font-bold mb-4">👻 Can't Touch This</h2>
+      <p>बटन आपसे भागता रहेगा 😤</p>
+      <button id="runawayBtn" onmouseover="moveButton()" class="mt-4 px-4 py-2 bg-yellow-500 text-white rounded">Click Me</button>
+    </div>
+  </div>
+
+  <div id="modal-villain" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-overlay absolute w-full h-full bg-black opacity-70" onclick="hideModal('villain')"></div>
+    <div class="bg-white rounded-lg p-6 max-w-md w-full relative">
+      <button onclick="hideModal('villain')" class="absolute top-2 right-2 text-gray-500 text-2xl">&times;</button>
+      <h2 class="text-xl font-bold mb-4">🎭 Who's the Real Villain?</h2>
+      <p>आपका दोस्त “विलेन” बन जाएगा 😏</p>
+      <img src="https://i.imgur.com/0NnJz4w.jpg " alt="Villain" class="mx-auto mt-4 w-32 h-32 object-cover rounded-full">
+    </div>
+  </div>
+
+  <div id="modal-poster" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-overlay absolute w-full h-full bg-black opacity-70" onclick="hideModal('poster')"></div>
+    <div class="bg-white rounded-lg p-6 max-w-md w-full relative">
+      <button onclick="hideModal('poster')" class="absolute top-2 right-2 text-gray-500 text-2xl">&times;</button>
+      <h2 class="text-xl font-bold mb-4">🎬 Bollywood Poster Generator</h2>
+      <input type="text" id="posterName" placeholder="Enter your name" class="border p-2 w-full mb-4 rounded">
+      <button onclick="generatePoster()" class="px-4 py-2 bg-green-500 text-white rounded">Generate Poster</button>
+      <div id="posterOutput" class="mt-4 text-center font-bold text-xl text-pink-600"></div>
+    </div>
+  </div>
+
+  <div id="modal-donothing" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-overlay absolute w-full h-full bg-black opacity-70" onclick="hideModal('donothing')"></div>
+    <div class="bg-white rounded-lg p-6 max-w-md w-full relative">
+      <button onclick="hideModal('donothing')" class="absolute top-2 right-2 text-gray-500 text-2xl">&times;</button>
+      <h2 class="text-xl font-bold mb-4">🚫 This Button Does Nothing</h2>
+      <p>बटन दबाओ… कुछ भी नहीं होगा! 😒</p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function showModal(id) {
+      document.getElementById(`modal-${id}`).classList.remove("hidden");
+    }
+
+    function hideModal(id) {
+      document.getElementById(`modal-${id}`).classList.add("hidden");
+    }
+
+    function playScream() {
+      document.getElementById("screamSound").play();
+    }
+
+    function moveButton() {
+      const btn = document.getElementById("runawayBtn");
+      const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+      btn.style.position = "absolute";
+      btn.style.left = `${x}px`;
+      btn.style.top = `${y}px`;
+    }
+
+    function generatePoster() {
+      const name = document.getElementById("posterName").value;
+      if (!name.trim()) return alert("Please enter your name!");
+      document.getElementById("posterOutput").innerText = `"${name}" के साथ बॉलीवुड पोस्टर! 🎬`;
+    }
+
+    function doNothing() {
+      alert("Oops! Nothing Happens 😒");
+    }
+  </script>
+</body>
+</html>
